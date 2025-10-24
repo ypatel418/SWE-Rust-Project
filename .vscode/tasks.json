@@ -1,0 +1,42 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build static MagickWand program",
+      "type": "shell",
+      "command": "gcc",
+      "args": [
+        "-I${workspaceFolder}/include",
+        "-I${workspaceFolder}/include/ImageMagick-7",
+        "-L${workspaceFolder}/lib",
+        "-DMAGICKCORE_HDRI_ENABLE=1",
+        "-DMAGICKCORE_QUANTUM_DEPTH=16",
+        "-static",
+        "-o",
+        "main",
+        "${workspaceFolder}/main.c",
+        "-lourconversionlib",
+        "-lMagickWand-7.Q16HDRI",
+        "-lMagickCore-7.Q16HDRI",
+        "-lpng16",
+        "-ltiff",
+        "-ljpeg",
+        "-lwebp",
+        "-lwebpdemux",
+        "-lwebpmux",
+        "-lsharpyuv",
+        "-lz",
+        "-lm",
+        "-pthread"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}
