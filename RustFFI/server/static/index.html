@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rust Image Converter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Image Converter</h1>
+  <form id="convertForm">
+    <input type="file" id="fileInput" required />
+    <select id="format">
+      <option value="jpg">JPG</option>
+      <option value="png">PNG</option>
+      <option value="tiff">TIFF</option>
+      <option value="webp">WEBP</option>
+    </select>
+    <label>
+      Quality:
+      <input type="number" id="quality" min="1" max="100" value="90" />
+    </label>
+    <button type="submit">Convert</button>
+  </form>
+
+  <div id="output" style="margin-top: 2em;"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
