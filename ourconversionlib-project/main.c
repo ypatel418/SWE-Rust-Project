@@ -7,7 +7,7 @@ int main() {
     convertToTIFF("input.png", 100);
     convertToWEBP("input.png", 100);
 
-    GIFInput input = makeGIFInput ((const char*[]){"input.png"}, 1, "output.gif", 100, -1, 500, 500);
+    GIFInput input = makeGIFInput ((const char*[]){"input.png"}, 1, "output.gif", 100, 0, 0, 0);
 
     makeGIF(input);
 
