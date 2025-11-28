@@ -116,7 +116,7 @@ use rocket_multipart_form_data::{
     Repetition, RawField, TextField,
 };
 
-#[rocket::post("/gif", data = "<data>")]
+#[rocket::post("/convert/gif", data = "<data>")]
 async fn make_gif_route(content_type: &ContentType, data: Data<'_>) -> Result<Binary, Status> {
     // Declare fields
     let mut opts = MultipartFormDataOptions::new();
@@ -169,7 +169,7 @@ async fn make_gif_route(content_type: &ContentType, data: Data<'_>) -> Result<Bi
     out_path.set_extension("gif");
     let out_path = out_tmp.into_temp_path().keep().map_err(|_| Status::InternalServerError)?;
 
-    // Safe for for GIF
+     // Safe for for GIF
     // Convert PathBuf to &str for make_gif_input
     let frame_str_paths: Vec<&str> = frame_paths
         .iter()
@@ -202,6 +202,6 @@ fn rocket() -> _ {
             convert_webp,
             make_gif_route,
         ])
-        .mount("/", rocket::fs::FileServer::from("static"))
+        .mount("/", rocket::fs::FileServer::from("static")) //"static folder"
 }
 
