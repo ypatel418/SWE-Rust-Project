@@ -1,3 +1,6 @@
+// Library wrapper 
+// Calls C functions from Rust
+
 pub mod ffi;
 use ffi::*;
 use std::ffi::CString;
